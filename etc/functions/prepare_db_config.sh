@@ -1,7 +1,8 @@
 ## Prepare MySQL configs
-function prepareMySQLClientConfigs {
+function prepare_mysql_client_configs {
 	# Setup config for mysql client
 	MYSQL_CONFIG="$TEMPDIR/mysql.conf"
+
 	cat > "$MYSQL_CONFIG" <<-EOF
 		[client]
 		host="${DB_HOST}"

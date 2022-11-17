@@ -1,5 +1,5 @@
 ## Download maps
-function downloadMaps {
+function download_maps {
 	# If fastDL URL and a maplist URL is set, download maps
 	if [ ! -z "$SV_DOWNLOADURL" ] && [ ! -z "$MAPLIST_URL" ]; then
 		echo ">>>> Downloading Maps & Setting mapcycle.txt"
@@ -14,7 +14,7 @@ function downloadMaps {
 
 		# Download maplist
 		wget -qO- "$MAPLIST_URL" > "$remote_maplist"
-		
+
 		if [ ! -z "$(grep ".bsp" "$remote_maplist")" ]; then
 
 			if [ ! -z "$ZONED_MAPS_ONLY" ]; then
@@ -22,7 +22,7 @@ function downloadMaps {
 				zoned_maps=($(mysql --defaults-file="$MYSQL_CONFIG" -se "SELECT mapname FROM ck_zones GROUP BY mapname ORDER BY mapname ASC;"))
 			fi
 
-			# Loop through the maplist 
+			# Loop through the maplist
 			while IFS="" read -r map || [ -n "$map" ]
 			do
 				# Get map name without extension

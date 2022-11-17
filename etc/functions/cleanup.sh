@@ -1,3 +1,3 @@
 function cleanup {
-	rm -rf "$TEMPDIR" 
+	rm -rf "$TEMPDIR"
 }

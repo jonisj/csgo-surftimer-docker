@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  csgo:
+    build: .
+    ports:
+      - "27015:27015/tcp"
+      - "27015:27015/udp"
+      - "27020:27020"
+    volumes:
+      - ./csgo-server:/home/steam/csgo-dedicated
+    environment:
+      SRCDS_TOKEN: changeme
+      SRCDS_RCONPW: 'changeme'
+      SRCDS_PW: 'changeme'
+      SRCDS_HOSTNAME: 'CSGO SurfTimer Server'
+      SRCDS_TICKRATE: 64
+      SRCDS_MAXPLAYERS: 14
+      SRCDS_STARTMAP: 'de_dust2'
+      SRCDS_REGION: 3
+      SRCDS_GAMETYPE: 0
+      SRCDS_GAMEMODE: 1
+      METAMOD_VERSION: 1.11
+      SOURCEMOD_VERSION: 1.11
