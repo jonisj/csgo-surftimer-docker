@@ -21,7 +21,7 @@ download_maps
 
 cleanup
 
-echo "Starting server..."
+echo ">>>> Starting Server..."
 echo "------------------------------------------"
 
 bash "./start.sh"
