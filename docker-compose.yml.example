@@ -9,15 +9,23 @@ services:
     volumes:
       - ./csgo-server:/home/steam/csgo-dedicated
     environment:
-      SRCDS_TOKEN: changeme
+      SRCDS_TOKEN: 'changeme'
       SRCDS_RCONPW: 'changeme'
-      SRCDS_PW: 'changeme'
-      SRCDS_HOSTNAME: 'CSGO SurfTimer Server'
+      SRCDS_PW: ''
+      SRCDS_HOSTNAME: 'SurfTimer Server'
       SRCDS_TICKRATE: 64
       SRCDS_MAXPLAYERS: 14
-      SRCDS_STARTMAP: 'de_dust2'
+      SRCDS_STARTMAP: 'changeme'
       SRCDS_REGION: 3
       SRCDS_GAMETYPE: 0
       SRCDS_GAMEMODE: 1
-      METAMOD_VERSION: 1.11
-      SOURCEMOD_VERSION: 1.11
+      METAMOD_VERSION: '1.11'
+      SOURCEMOD_VERSION: '1.11'
+      DB_HOST: 'changeme'
+      DB_PORT: '3306'
+      DB_DATABASE: surftimer
+      DB_USER: changeme
+      DB_PASS: changeme
+      SV_DOWNLOADURL: ''
+      MAPLIST_URL: ''
+      ZONED_MAPS_ONLY: 1
