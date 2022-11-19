@@ -34,7 +34,7 @@ function update_extra {
 	# Check if the dependency needs an update
 	case "$(check_version "$dependecy" "$current_ver")" in
 		"install" | "update")
-			echo ">> Installing $name $current_ver"
+			echo ">>> Installing $name $current_ver"
 
 			"$update_function" "$dependecy"
 
@@ -42,7 +42,7 @@ function update_extra {
 			;;
 
 		*)
-			echo ">> $name is up-to-date"
+			echo ">>> $name is up-to-date"
 			;;
 	esac
 }

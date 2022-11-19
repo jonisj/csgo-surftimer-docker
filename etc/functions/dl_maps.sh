@@ -31,7 +31,7 @@ function download_maps {
 				if [ ! -z "$ZONED_MAPS_ONLY" ]; then
 					# Check if the map is not found from the list of zoned maps
 					if [[ ! " ${zoned_maps[@]} " =~ " ${map_name} " ]]; then
-						echo "> $map_name not zoned. Skipping."
+						echo ">>> $map_name not zoned. Skipping."
 						continue;
 					fi
 				fi
@@ -40,7 +40,7 @@ function download_maps {
 				if [ ! -f "${STEAMAPPDIR}/${STEAMAPP}/maps/$map_name.bsp" ]; then
 
 					# Download the map
-					echo "> Downloading $map"
+					echo ">> Downloading $map"
 					wget -q "$SV_DOWNLOADURL/maps/$map" -P "${maps_download_dir}"
 
 					if [[ $map == *.bz2 ]]; then
