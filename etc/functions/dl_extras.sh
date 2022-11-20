@@ -68,6 +68,6 @@ function install_crouchboostfix {
 # https://github.com/sneak-it/Normalized-Run-Speed
 function install_normalized_run_speed {
 	dl_extract "zip" "$1" "https://github.com/sneak-it/Normalized-Run-Speed/archive/513fafcbe0f32930d9921fe5dd5f6b54586ae404.zip"
-	cp -R "$TEMPDIR/"$1"/gamedata/"* "${STEAMAPPDIR}/${STEAMAPP}/addons/sourcemod/gamedata/"
-	cp -R "$TEMPDIR/"$1"/plugins/"* "${STEAMAPPDIR}/${STEAMAPP}/addons/sourcemod/plugins/"
+	cp -R "$TEMPDIR/"$1"/Normalized-Run-Speed-513fafcbe0f32930d9921fe5dd5f6b54586ae404/gamedata/"* "${STEAMAPPDIR}/${STEAMAPP}/addons/sourcemod/gamedata/"
+	cp -R "$TEMPDIR/"$1"/Normalized-Run-Speed-513fafcbe0f32930d9921fe5dd5f6b54586ae404/plugins/"* "${STEAMAPPDIR}/${STEAMAPP}/addons/sourcemod/plugins/"
 }

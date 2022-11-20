@@ -29,26 +29,20 @@ function install_surftimer {
 			#  Run MySQL scripts on first install
 			mysql --defaults-file="${MYSQL_CONFIG}" < "$TEMPDIR/surftimer/scripts/mysql-files/fresh_install.sql"
 
-			# Import default SurfTimer zones and maptiers
-			mysql --defaults-file="${MYSQL_CONFIG}" < "$TEMPDIR/surftimer/scripts/mysql-files/ck_maptier.sql"
-			mysql --defaults-file="${MYSQL_CONFIG}" < "$TEMPDIR/surftimer/scripts/mysql-files/ck_zones.sql"
+			# Download and import combined maptier and zone data
+			mkdir -p "${TEMPDIR}/db-data"
 
-			# Download and import updated zones and maptiers from Demented Gaming
-			# Surftimer-Official Zones by Demented Gaming https://github.com/Kyli3Boi/Surftimer-Official-Zones
-			dl_extract "zip" "demented-gaming-zones" "https://github.com/Kyli3Boi/Surftimer-Official-Zones/archive/e351d74a324d3b1523b37bb84e1714466a5475f8.zip"
+			wget -q "https://github.com/jonisj/SurfTimer-Combined-Zones-and-Maptiers/releases/download/v1.0.0/ck_maptier.sql" -P "${TEMPDIR}/db-data/"
+			wget -q "https://github.com/jonisj/SurfTimer-Combined-Zones-and-Maptiers/releases/download/v1.0.0/ck_zones.sql" -P "${TEMPDIR}/db-data/"
 
-			# Replace INSERT INTO statements with REPLACE INTO to overwrite default zones and maptiers
-			sed -i -e 's/INSERT/REPLACE/g' $TEMPDIR/demented-gaming-zones/All/All_maptier.sql
-			sed -i -e 's/INSERT/REPLACE/g' $TEMPDIR/demented-gaming-zones/All/All_zones.sql
-
-			mysql --defaults-file="${MYSQL_CONFIG}" < $TEMPDIR/demented-gaming-zones/All/All_maptier.sql
-			mysql --defaults-file="${MYSQL_CONFIG}" < $TEMPDIR/demented-gaming-zones/All/All_zones.sql
+			mysql --defaults-file="${MYSQL_CONFIG}" < "${TEMPDIR}/db-data/ck_maptier.sql"
+			mysql --defaults-file="${MYSQL_CONFIG}" < "${TEMPDIR}/db-data/ck_zones.sql"
 
 			# Install updated Stripper files from Demented Gaming
 			# Surftimer-Official Stripper Config by Demented Gaming https://github.com/Kyli3Boi/Surftimer-Official-Stripper-Config
 			dl_extract "zip" "demented-gaming-stripper" https://github.com/Kyli3Boi/Surftimer-Official-Stripper-Config/archive/29584f9a1b9bfcf35fd808a042d23fc96377785f.zip
 
-			cp -R "$TEMPDIR/demented-gaming-stripper/addons/stripper/" "${STEAMAPPDIR}/${STEAMAPP}/addons/"
+			cp -R "$TEMPDIR/demented-gaming-stripper/Surftimer-Official-Stripper-Config-29584f9a1b9bfcf35fd808a042d23fc96377785f/addons/stripper/" "${STEAMAPPDIR}/${STEAMAPP}/addons/"
 
 			;;
 		*)
