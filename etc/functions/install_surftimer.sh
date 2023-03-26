@@ -8,7 +8,7 @@ function install_surftimer {
 
 			# Folder structure and files in releases changes every time,
 			# don't bother trying to make anything fancy here
-			dl_extract "zip" "surftimer" "https://github.com/surftimer/SurfTimer/releases/download/1.1.3.1/SurfTimer.1.1.3.1.912.01b3153.SM1.11.zip"
+			dl_extract "zip" "surftimer" "https://github.com/surftimer/SurfTimer/releases/download/1.1.4/SurfTimer.1.1.4.914.6a563cd.SM1.11.zip"
 
 			cp -R "$TEMPDIR/surftimer/addons/sourcemod/plugins/"* "${STEAMAPPDIR}/${STEAMAPP}/addons/sourcemod/plugins/"
 			cp -Rn "$TEMPDIR/surftimer/addons/sourcemod/configs/"* "${STEAMAPPDIR}/${STEAMAPP}/addons/sourcemod/configs/"
